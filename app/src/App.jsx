@@ -101,7 +101,7 @@ export default function App() {
           <a href="#" className="hover:text-primary-600 transition-colors">Thẩm Định Mật Độ</a>
         </div>
         <a href="https://zalo.me/0909222596" target="_blank" rel="noopener noreferrer" className="bg-primary-600 hover:bg-primary-700 text-white px-5 py-2.5 rounded-full font-medium transition-all shadow-md shadow-primary-600/30 flex items-center gap-2 cursor-pointer">
-          <Phone className="w-4 h-4" />
+          <img src="https://cdn.simpleicons.org/zalo/white" alt="Zalo" width="18" height="18" />
           <span>0909.222.596</span>
         </a>
       </nav>
@@ -289,6 +289,9 @@ export default function App() {
               <li>Email: contact@viethoangha.com</li>
               <li>Địa chỉ: TP. Hồ Chí Minh</li>
               <li className="flex gap-4 pt-3">
+                <a href="https://zalo.me/0909222596" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white/10 rounded-full hover:bg-primary-600 hover:-translate-y-1 transition-all text-white flex items-center justify-center">
+                  <img src="https://cdn.simpleicons.org/zalo/white" alt="Zalo" width="20" height="20" />
+                </a>
                 <a href="https://www.facebook.com/viet.hoang.ha.482723" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white/10 rounded-full hover:bg-primary-600 hover:-translate-y-1 transition-all text-white flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                 </a>
