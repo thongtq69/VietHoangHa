@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, MapPin, BedDouble, Bath, Square, ChevronRight, Phone, Home, Building, Star, CheckCircle, Facebook, Youtube } from 'lucide-react';
+import { Search, MapPin, BedDouble, Bath, Square, ChevronRight, Phone, Home, Building, Star, CheckCircle } from 'lucide-react';
 import realEstateData from './data.json';
 
 const fakeProperties = [
@@ -11,7 +11,7 @@ const fakeProperties = [
     area: '120m²',
     beds: 4,
     baths: 4,
-    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=800',
     tags: ['Sổ hồng', 'Mới'],
     link: realEstateData[0]?.link || '#'
   },
@@ -23,7 +23,7 @@ const fakeProperties = [
     area: '80m²',
     beds: 3,
     baths: 3,
-    image: 'https://images.unsplash.com/photo-1600607687931-cecebd802404?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800',
     tags: ['Sổ Riêng', 'Kinh Doanh'],
     link: realEstateData[1]?.link || '#'
   },
@@ -35,7 +35,7 @@ const fakeProperties = [
     area: '95m²',
     beds: 3,
     baths: 2,
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=800',
     tags: ['Nội thất cao cấp'],
     link: realEstateData[2]?.link || '#'
   },
@@ -47,7 +47,7 @@ const fakeProperties = [
     area: '65m²',
     beds: 4,
     baths: 4,
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.pexels.com/photos/208736/pexels-photo-208736.jpeg?auto=compress&cs=tinysrgb&w=800',
     tags: ['Đang trống', 'Mới Xây'],
     link: realEstateData[3]?.link || '#'
   },
@@ -59,7 +59,7 @@ const fakeProperties = [
     area: '100m²',
     beds: 5,
     baths: 5,
-    image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=800',
     tags: ['Sinh lời ngay', 'Sổ hồng'],
     link: realEstateData[4]?.link || '#'
   },
@@ -71,7 +71,7 @@ const fakeProperties = [
     area: '110m²',
     beds: 3,
     baths: 3,
-    image: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=800',
     tags: ['View đẹp', 'Sổ hồng'],
     link: realEstateData[5]?.link || '#'
   }
@@ -256,7 +256,7 @@ export default function App() {
           <div className="relative">
             <div className="absolute inset-0 bg-primary-600 rounded-[2rem] translate-x-4 translate-y-4 opacity-10"></div>
             <img 
-              src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80" 
+              src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800" 
               alt="Professional Real Estate Team" 
               className="relative z-10 w-full rounded-[2rem] object-cover h-96 shadow-lg"
             />
@@ -289,11 +289,11 @@ export default function App() {
               <li>Email: contact@viethoangha.com</li>
               <li>Địa chỉ: TP. Hồ Chí Minh</li>
               <li className="flex gap-4 pt-3">
-                <a href="https://www.facebook.com/viet.hoang.ha.482723" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white/10 rounded-full hover:bg-primary-600 hover:-translate-y-1 transition-all text-white">
-                  <Facebook className="w-5 h-5" />
+                <a href="https://www.facebook.com/viet.hoang.ha.482723" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white/10 rounded-full hover:bg-primary-600 hover:-translate-y-1 transition-all text-white flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                 </a>
-                <a href="https://www.youtube.com/channel/UCLLhYG3k9y225mWCQEpbKiw" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white/10 rounded-full hover:bg-primary-600 hover:-translate-y-1 transition-all text-white">
-                  <Youtube className="w-5 h-5" />
+                <a href="https://www.youtube.com/channel/UCLLhYG3k9y225mWCQEpbKiw" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white/10 rounded-full hover:bg-primary-600 hover:-translate-y-1 transition-all text-white flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
                 </a>
               </li>
             </ul>
