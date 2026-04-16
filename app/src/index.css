@@ -46,3 +46,28 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
+@utility shadow-premium {
+  box-shadow: 0 20px 60px -15px rgba(0,0,0,0.12);
+}
+
+@utility line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@utility line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@utility line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
