@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
-import { Search, MapPin, BedDouble, Bath, Square, ChevronRight, ChevronLeft, Phone, Home, Building, Star, CheckCircle, Menu, X, TrendingUp, Users, Award, Image as ImageIcon, Newspaper, BookOpen, BarChart3, Calendar, ExternalLink } from 'lucide-react';
+import { Search, MapPin, BedDouble, Bath, Square, ChevronRight, ChevronLeft, Phone, Home, Building, Star, CheckCircle, Menu, X, TrendingUp, Users, Award, Image as ImageIcon, Newspaper, BookOpen, BarChart3, Calendar, ExternalLink, ArrowLeft } from 'lucide-react';
 import allProperties from './data.json';
 
 // Data is already sorted newest-first (ID 1 = most recent Facebook post)
@@ -22,6 +22,7 @@ export default function App() {
   const [imgErrors, setImgErrors] = useState({});
   const [selectedProperty, setSelectedProperty] = useState(null);
   const [galleryIndex, setGalleryIndex] = useState(0);
+  const [currentView, setCurrentView] = useState('home'); // 'home' | 'news' | 'article'
   const [activeNewsTab, setActiveNewsTab] = useState('tin-tuc');
   const [newsData, setNewsData] = useState([]);
   const [selectedArticle, setSelectedArticle] = useState(null);
@@ -35,9 +36,7 @@ export default function App() {
 
   const filteredNews = useMemo(() => {
     if (!newsData || newsData.length === 0) return [];
-    return newsData
-      .filter(article => article.category === activeNewsTab)
-      .slice(0, 6);
+    return newsData.filter(article => article.category === activeNewsTab);
   }, [activeNewsTab, newsData]);
 
   const districts = useMemo(() => {
@@ -133,7 +132,8 @@ export default function App() {
   const openArticle = useCallback((article) => {
     if (article.content) {
       setSelectedArticle(article);
-      document.body.style.overflow = 'hidden';
+      setCurrentView('article');
+      window.scrollTo({ top: 0 });
     } else if (article.url) {
       window.open(article.url, '_blank', 'noopener,noreferrer');
     }
@@ -141,7 +141,21 @@ export default function App() {
 
   const closeArticle = useCallback(() => {
     setSelectedArticle(null);
-    document.body.style.overflow = '';
+    setCurrentView('news');
+    window.scrollTo({ top: 0 });
+  }, []);
+
+  const goToNews = useCallback(() => {
+    setCurrentView('news');
+    setMobileMenuOpen(false);
+    window.scrollTo({ top: 0 });
+  }, []);
+
+  const goToHome = useCallback(() => {
+    setCurrentView('home');
+    setSelectedArticle(null);
+    setMobileMenuOpen(false);
+    window.scrollTo({ top: 0 });
   }, []);
 
   const openGallery = useCallback((property) => {
@@ -168,18 +182,502 @@ export default function App() {
 
   useEffect(() => {
     const handleKey = (e) => {
-      if (e.key === 'Escape') {
-        if (selectedArticle) { closeArticle(); return; }
-        if (selectedProperty) { closeGallery(); return; }
-      }
+      if (e.key === 'Escape' && selectedProperty) { closeGallery(); return; }
       if (!selectedProperty) return;
       if (e.key === 'ArrowLeft') galleryPrev();
       if (e.key === 'ArrowRight') galleryNext();
     };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
-  }, [selectedProperty, selectedArticle, closeGallery, closeArticle, galleryPrev, galleryNext]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedProperty]);
 
+  // --- Content renderer: parse plain text with conventions into JSX ---
+  const renderContent = (content, contentImages) => {
+    if (!content) return null;
+    const images = contentImages || [];
+    const blocks = content.split('\n\n');
+    const imageInterval = images.length > 0 ? Math.max(1, Math.floor(blocks.length / (images.length + 1))) : 0;
+    let imageIdx = 0;
+
+    const rendered = [];
+
+    blocks.forEach((block, i) => {
+      const trimmed = block.trim();
+      if (!trimmed) return;
+
+      // Heading: ## Title
+      if (trimmed.startsWith('## ')) {
+        rendered.push(
+          <h2 key={`h-${i}`} className="text-xl md:text-2xl font-heading font-bold text-secondary-900 mt-8 mb-4">
+            {trimmed.slice(3)}
+          </h2>
+        );
+      }
+      // Blockquote: > text
+      else if (trimmed.startsWith('> ')) {
+        rendered.push(
+          <blockquote key={`bq-${i}`} className="border-l-4 border-primary-600 pl-4 italic text-secondary-800/80 my-5 md:my-6">
+            {trimmed.slice(2)}
+          </blockquote>
+        );
+      }
+      // Caption: [Caption text]
+      else if (/^\[.+\]$/.test(trimmed)) {
+        rendered.push(
+          <figcaption key={`cap-${i}`} className="text-secondary-800/50 text-xs md:text-sm text-center mt-1 mb-5 italic">
+            {trimmed.slice(1, -1)}
+          </figcaption>
+        );
+      }
+      // List items block: lines starting with bullet
+      else if (trimmed.includes('\n') && trimmed.split('\n').every(l => l.trim().startsWith('•') || l.trim().startsWith('- '))) {
+        const items = trimmed.split('\n').map(l => l.trim().replace(/^[•\-]\s*/, ''));
+        rendered.push(
+          <ul key={`ul-${i}`} className="list-disc list-inside space-y-2 my-4 md:my-5 text-secondary-800 pl-2">
+            {items.map((item, j) => <li key={j}>{item}</li>)}
+          </ul>
+        );
+      }
+      // Single bullet line
+      else if (trimmed.startsWith('• ') || trimmed.startsWith('- ')) {
+        rendered.push(
+          <ul key={`ul-${i}`} className="list-disc list-inside space-y-2 my-4 md:my-5 text-secondary-800 pl-2">
+            <li>{trimmed.replace(/^[•\-]\s*/, '')}</li>
+          </ul>
+        );
+      }
+      // Regular paragraph
+      else {
+        rendered.push(
+          <p key={`p-${i}`} className="text-base md:text-lg leading-[1.8] text-secondary-800 mb-4 md:mb-5">
+            {trimmed}
+          </p>
+        );
+      }
+
+      // Insert content images spread evenly
+      if (images.length > 0 && imageIdx < images.length && imageInterval > 0 && (i + 1) % imageInterval === 0 && i > 0) {
+        const img = images[imageIdx];
+        const imgUrl = typeof img === 'string' ? img : img.url;
+        const imgCaption = typeof img === 'string' ? '' : img.caption;
+        rendered.push(
+          <figure key={`img-${imageIdx}`} className="my-6 md:my-8 -mx-4 md:mx-0">
+            <img
+              src={imgUrl}
+              alt={imgCaption || ''}
+              className="w-full h-auto object-cover md:rounded-xl"
+              loading="lazy"
+            />
+            {imgCaption && (
+              <figcaption className="text-secondary-800/50 text-xs md:text-sm text-center mt-2 px-4 italic">
+                {imgCaption}
+              </figcaption>
+            )}
+          </figure>
+        );
+        imageIdx++;
+      }
+    });
+
+    return rendered;
+  };
+
+  // --- Article Page View (full page, replaces main content) ---
+  // Related articles in same category
+  const relatedArticles = useMemo(() => {
+    if (!selectedArticle) return [];
+    return newsData
+      .filter(a => a.category === selectedArticle.category && a.id !== selectedArticle.id)
+      .slice(0, 6);
+  }, [selectedArticle, newsData]);
+
+  // ══════════════ ARTICLE VIEW ══════════════
+  if (currentView === 'article' && selectedArticle) {
+    return (
+      <div className="min-h-screen font-body bg-secondary-50 select-none">
+        {/* Sticky Header */}
+        <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-secondary-100 px-4 md:px-6 py-3">
+          <div className="max-w-5xl mx-auto flex items-center justify-between gap-3">
+            <button
+              onClick={closeArticle}
+              className="flex items-center gap-2 text-secondary-800 hover:text-primary-600 font-medium transition-colors cursor-pointer py-2 pr-3"
+            >
+              <ArrowLeft className="w-5 h-5" />
+              <span className="text-sm md:text-base">Quay lại</span>
+            </button>
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center text-white">
+                <Home className="w-4 h-4" />
+              </div>
+              <span className="text-base font-heading font-bold text-secondary-900 hidden sm:inline">Việt Hoàng Hà<span className="text-primary-600">.</span></span>
+            </div>
+            <a
+              href="https://zalo.me/0909222596"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary-600 hover:bg-primary-700 text-white px-3 md:px-4 py-2 rounded-full font-medium transition-all shadow-md shadow-primary-600/30 flex items-center gap-1.5 cursor-pointer text-sm"
+            >
+              <img src="https://cdn.simpleicons.org/zalo/white" alt="Zalo" width="16" height="16" />
+              <span className="hidden sm:inline">0909.222.596</span>
+            </a>
+          </div>
+        </header>
+
+        {/* Article Card */}
+        <div className="max-w-3xl mx-auto mt-4 md:mt-8 mb-6 bg-white md:rounded-2xl overflow-hidden md:shadow-sm md:border md:border-secondary-100">
+          {/* Hero Image — constrained height, gradient overlay with title */}
+          {selectedArticle.image && (
+            <div className="relative h-48 md:h-72 overflow-hidden bg-secondary-100">
+              <img
+                src={selectedArticle.image}
+                alt={selectedArticle.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+                {selectedArticle.categoryLabel && (
+                  <span className="bg-primary-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    {selectedArticle.categoryLabel}
+                  </span>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Article Body */}
+          <article className="px-4 md:px-8 py-5 md:py-8">
+            {/* Meta */}
+            <div className="flex flex-wrap items-center gap-3 mb-3 md:mb-4 text-secondary-800/50 text-xs md:text-sm">
+              {selectedArticle.date && (
+                <span className="flex items-center gap-1.5 font-medium">
+                  <Calendar className="w-3.5 h-3.5" />
+                  {selectedArticle.date}
+                </span>
+              )}
+              {selectedArticle.author && (
+                <span className="font-medium">{selectedArticle.author}</span>
+              )}
+            </div>
+
+            {/* Title */}
+            <h1 className="text-2xl md:text-4xl font-heading font-bold text-secondary-900 leading-tight mb-5 md:mb-6">
+              {selectedArticle.title}
+            </h1>
+
+            <div className="h-px bg-secondary-100 mb-5 md:mb-8" />
+
+            {/* Content */}
+            <div className="mb-6 md:mb-10">
+              {renderContent(selectedArticle.content, selectedArticle.contentImages)}
+            </div>
+
+            <div className="h-px bg-secondary-100 mb-5 md:mb-6" />
+
+            {/* Source */}
+            <div className="flex items-center justify-between flex-wrap gap-3 mb-6 text-sm">
+              <p className="text-secondary-800/50 font-medium">Nguồn: <span className="text-secondary-800/70">Batdongsan.com.vn</span></p>
+              {selectedArticle.url && (
+                <a
+                  href={selectedArticle.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-primary-600 hover:text-primary-700 font-semibold transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Xem bài gốc
+                </a>
+              )}
+            </div>
+
+            {/* CTA */}
+            <div className="bg-primary-50 rounded-2xl p-5 md:p-6 text-center">
+              <h3 className="text-base md:text-lg font-heading font-bold text-secondary-900 mb-1">Bạn cần tư vấn BĐS?</h3>
+              <p className="text-secondary-800/50 text-xs md:text-sm mb-4">Liên hệ ngay để được hỗ trợ tìm kiếm BĐS phù hợp nhất</p>
+              <div className="flex items-center justify-center gap-3">
+                <a href="https://zalo.me/0909222596" target="_blank" rel="noopener noreferrer" className="bg-primary-600 hover:bg-primary-700 text-white px-5 py-2.5 rounded-full font-semibold transition-all shadow-md shadow-primary-600/30 flex items-center gap-2 cursor-pointer text-sm">
+                  <img src="https://cdn.simpleicons.org/zalo/white" alt="Zalo" width="16" height="16" />
+                  Nhắn Zalo
+                </a>
+                <a href="tel:0909222596" className="bg-secondary-900 hover:bg-secondary-800 text-white px-5 py-2.5 rounded-full font-semibold transition-all flex items-center gap-2 cursor-pointer text-sm">
+                  <Phone className="w-4 h-4" />
+                  0909.222.596
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        {/* Related Articles */}
+        {relatedArticles.length > 0 && (
+          <div className="max-w-5xl mx-auto px-4 md:px-6 mb-8 md:mb-12">
+            <h2 className="text-xl md:text-2xl font-heading font-bold text-secondary-900 mb-4 md:mb-6">Bài viết liên quan</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+              {relatedArticles.map(article => (
+                <div
+                  key={article.id}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => { openArticle(article); }}
+                  onKeyDown={e => { if (e.key === 'Enter') openArticle(article); }}
+                  className="bg-white rounded-xl overflow-hidden cursor-pointer group hover:shadow-md transition-all border border-secondary-100"
+                >
+                  <div className="relative h-36 md:h-40 overflow-hidden bg-secondary-50">
+                    {article.image ? (
+                      <img src={article.image} alt={article.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center">
+                        <Newspaper className="w-10 h-10 text-secondary-200" />
+                      </div>
+                    )}
+                    {article.categoryLabel && (
+                      <span className="absolute top-2.5 left-2.5 bg-primary-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                        {article.categoryLabel}
+                      </span>
+                    )}
+                  </div>
+                  <div className="p-3 md:p-4">
+                    <h3 className="text-sm md:text-base font-bold text-secondary-900 line-clamp-2 mb-1.5 group-hover:text-primary-600 transition-colors">{article.title}</h3>
+                    <span className="text-secondary-800/40 text-xs">{article.date}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Footer - same as main page */}
+        <footer className="bg-secondary-900 text-white py-12 md:py-16 px-4 md:px-6">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-10">
+            <div className="col-span-1 md:col-span-2">
+              <h2 className="text-2xl md:text-3xl font-heading font-bold mb-3 md:mb-4">Việt Hoàng Hà<span className="text-primary-600">.</span></h2>
+              <p className="text-secondary-50/70 max-w-sm mb-4 md:mb-6 font-medium leading-relaxed text-sm md:text-base">
+                Trang thông tin mua bán bất động sản uy tín nhất tại khu vực Gò Vấp, Quận 12, và Tân Bình.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-bold text-lg mb-3 md:mb-4 text-white">Chuyên Mục</h4>
+              <ul className="space-y-2 md:space-y-3 font-medium text-secondary-50/70 text-sm md:text-base">
+                <li><span className="hover:text-primary-600 transition-colors cursor-pointer" onClick={() => { closeArticle(); setTimeout(() => { handleDistrictChange('Gò Vấp'); scrollToProperties(); }, 200); }}>Nhà Bán Gò Vấp</span></li>
+                <li><span className="hover:text-primary-600 transition-colors cursor-pointer" onClick={() => { closeArticle(); setTimeout(() => { handleDistrictChange('Tân Bình'); scrollToProperties(); }, 200); }}>Nhà Bán Tân Bình</span></li>
+                <li><a href="https://zalo.me/0909222596" target="_blank" rel="noopener noreferrer" className="hover:text-primary-600 transition-colors">Ký Gửi Nhà Đất</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold text-lg mb-3 md:mb-4 text-white">Liên Hệ</h4>
+              <ul className="space-y-2 md:space-y-3 font-medium text-secondary-50/70 text-sm md:text-base">
+                <li>Hotline / Zalo: <a href="https://zalo.me/0909222596" target="_blank" rel="noopener noreferrer" className="hover:text-primary-600 transition-colors font-bold text-white">0909 222 596</a></li>
+                <li>Email: contact@viethoangha.com</li>
+                <li>TP. Hồ Chí Minh</li>
+                <li className="flex gap-3 pt-2 md:pt-3">
+                  <a href="https://zalo.me/0909222596" target="_blank" rel="noopener noreferrer" aria-label="Zalo" className="w-11 h-11 bg-white/10 rounded-full hover:bg-primary-600 hover:-translate-y-1 active:scale-95 transition-all duration-200 text-white flex items-center justify-center">
+                    <img src="https://cdn.simpleicons.org/zalo/white" alt="Zalo" width="20" height="20" />
+                  </a>
+                  <a href="https://www.facebook.com/viet.hoang.ha.482723" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-11 h-11 bg-white/10 rounded-full hover:bg-primary-600 hover:-translate-y-1 active:scale-95 transition-all duration-200 text-white flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                  </a>
+                  <a href="https://www.youtube.com/channel/UCLLhYG3k9y225mWCQEpbKiw" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-11 h-11 bg-white/10 rounded-full hover:bg-primary-600 hover:-translate-y-1 active:scale-95 transition-all duration-200 text-white flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="max-w-7xl mx-auto mt-10 md:mt-12 pt-6 md:pt-8 border-t border-white/10 text-center text-secondary-50/50 font-medium text-xs md:text-sm">
+            &copy; 2026 Việt Hoàng Hà Real Estate. All rights reserved.
+          </div>
+        </footer>
+
+        {/* Gallery modal still works in article view */}
+        {selectedProperty && (
+          <div className="fixed inset-0 z-[100] bg-black/90" onClick={closeGallery}>
+            <button onClick={closeGallery} aria-label="Đóng gallery" className="absolute top-3 right-3 md:top-5 md:right-5 z-20 bg-white/15 hover:bg-white/30 text-white p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full transition-all duration-200 cursor-pointer">
+              <X className="w-5 h-5 md:w-6 md:h-6" />
+            </button>
+            <div className="absolute inset-0 bottom-auto flex items-center justify-center" style={{ height: 'calc(100vh - 180px)' }} onClick={e => e.stopPropagation()}>
+              <img
+                src={selectedProperty.images?.[galleryIndex] || selectedProperty.image}
+                alt={`${selectedProperty.title} - Ảnh ${galleryIndex + 1}`}
+                className="max-w-full max-h-full object-contain p-2 md:p-4"
+              />
+              {selectedProperty.images && selectedProperty.images.length > 1 && (
+                <>
+                  <button onClick={galleryPrev} aria-label="Ảnh trước" className="absolute left-1 md:left-4 top-1/2 -translate-y-1/2 bg-white/15 hover:bg-white/30 active:scale-95 text-white p-2.5 md:p-3 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full transition-all duration-200 cursor-pointer">
+                    <ChevronLeft className="w-5 h-5 md:w-7 md:h-7" />
+                  </button>
+                  <button onClick={galleryNext} aria-label="Ảnh tiếp theo" className="absolute right-1 md:right-4 top-1/2 -translate-y-1/2 bg-white/15 hover:bg-white/30 active:scale-95 text-white p-2.5 md:p-3 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full transition-all duration-200 cursor-pointer">
+                    <ChevronRight className="w-5 h-5 md:w-7 md:h-7" />
+                  </button>
+                </>
+              )}
+              {selectedProperty.images && selectedProperty.images.length > 1 && (
+                <div className="absolute top-3 left-1/2 -translate-x-1/2 bg-black/50 text-white/90 px-4 py-1.5 rounded-full text-xs md:text-sm font-medium">
+                  {galleryIndex + 1} / {selectedProperty.images.length}
+                </div>
+              )}
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent pt-8" onClick={e => e.stopPropagation()}>
+              {selectedProperty.images && selectedProperty.images.length > 1 && (
+                <div className="flex gap-1.5 md:gap-2 px-3 md:px-6 pb-3 overflow-x-auto justify-center">
+                  {selectedProperty.images.map((img, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setGalleryIndex(idx)}
+                      className={`shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-lg overflow-hidden cursor-pointer border-2 transition-all ${
+                        idx === galleryIndex ? 'border-primary-600 scale-110' : 'border-white/20 opacity-50 hover:opacity-90'
+                      }`}
+                    >
+                      <img src={img} alt="" className="w-full h-full object-cover" />
+                    </button>
+                  ))}
+                </div>
+              )}
+              <div className="flex items-center justify-between gap-3 px-3 md:px-6 pb-4 md:pb-5 pt-2">
+                <div className="min-w-0">
+                  <h3 className="text-white font-heading font-bold text-sm md:text-lg truncate">{selectedProperty.title}</h3>
+                  <div className="flex items-center gap-3 mt-1">
+                    <span className="text-primary-600 font-bold text-sm md:text-base">{selectedProperty.price}</span>
+                    {selectedProperty.ward && selectedProperty.ward !== selectedProperty.district && (
+                      <span className="text-white/50 text-xs md:text-sm">{selectedProperty.ward}, {selectedProperty.district}</span>
+                    )}
+                    {selectedProperty.beds > 0 && <span className="text-white/50 text-xs md:text-sm">{selectedProperty.beds}PN</span>}
+                    {selectedProperty.baths > 0 && <span className="text-white/50 text-xs md:text-sm">{selectedProperty.baths}WC</span>}
+                    {selectedProperty.area && selectedProperty.area !== 'Liên hệ' && <span className="text-white/50 text-xs md:text-sm">{selectedProperty.area}</span>}
+                  </div>
+                </div>
+                <a href="https://zalo.me/0909222596" target="_blank" rel="noopener noreferrer" className="shrink-0 flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-4 md:px-5 py-2.5 rounded-full transition-all cursor-pointer text-xs md:text-sm">
+                  <img src="https://cdn.simpleicons.org/zalo/white" alt="Zalo" width="16" height="16" />
+                  Liên hệ
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // ══════════════ NEWS PAGE VIEW ══════════════
+  if (currentView === 'news') {
+    return (
+      <div className="min-h-screen font-body bg-secondary-50 select-none">
+        {/* Header */}
+        <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-secondary-100 px-4 md:px-6 py-3">
+          <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
+            <button onClick={goToHome} className="flex items-center gap-2 text-secondary-800 hover:text-primary-600 font-medium transition-colors cursor-pointer py-2">
+              <ArrowLeft className="w-5 h-5" />
+              <span className="text-sm md:text-base">Trang chủ</span>
+            </button>
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center text-white">
+                <Home className="w-4 h-4" />
+              </div>
+              <span className="text-base font-heading font-bold text-secondary-900 hidden sm:inline">Việt Hoàng Hà<span className="text-primary-600">.</span></span>
+            </div>
+            <a href="https://zalo.me/0909222596" target="_blank" rel="noopener noreferrer" className="bg-primary-600 hover:bg-primary-700 text-white px-3 md:px-4 py-2 rounded-full font-medium transition-all shadow-md shadow-primary-600/30 flex items-center gap-1.5 cursor-pointer text-sm">
+              <img src="https://cdn.simpleicons.org/zalo/white" alt="Zalo" width="16" height="16" />
+              <span className="hidden sm:inline">0909.222.596</span>
+            </a>
+          </div>
+        </header>
+
+        {/* Page Title */}
+        <div className="max-w-7xl mx-auto px-4 md:px-6 pt-6 md:pt-10 pb-4 md:pb-6">
+          <h1 className="text-2xl md:text-4xl font-heading font-bold text-secondary-900 mb-2">Tin Tức & Phân Tích BĐS</h1>
+          <p className="text-secondary-800/60 text-sm md:text-base">Cập nhật thông tin thị trường, kiến thức và phân tích chuyên sâu</p>
+        </div>
+
+        {/* Tabs */}
+        <div className="max-w-7xl mx-auto px-4 md:px-6 pb-6 md:pb-8">
+          <div className="flex items-center gap-2 md:gap-3 overflow-x-auto pb-2">
+            {NEWS_TABS.map(tab => {
+              const TabIcon = tab.icon;
+              const count = newsData.filter(a => a.category === tab.key).length;
+              return (
+                <button
+                  key={tab.key}
+                  onClick={() => setActiveNewsTab(tab.key)}
+                  className={`flex items-center gap-2 px-4 md:px-6 py-2.5 md:py-3 rounded-full font-medium transition-all cursor-pointer text-sm md:text-base whitespace-nowrap min-h-[44px] ${
+                    activeNewsTab === tab.key
+                      ? 'bg-primary-600 text-white shadow-md shadow-primary-600/30'
+                      : 'bg-white text-secondary-800 hover:bg-primary-50 border border-secondary-100'
+                  }`}
+                >
+                  <TabIcon className="w-4 h-4" />
+                  <span>{tab.label}</span>
+                  <span className={`text-xs px-1.5 py-0.5 rounded-full ${activeNewsTab === tab.key ? 'bg-white/20' : 'bg-secondary-100'}`}>{count}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Articles Grid */}
+        <div className="max-w-7xl mx-auto px-4 md:px-6 pb-12 md:pb-16">
+          {filteredNews.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+              {filteredNews.map((article, idx) => (
+                <div
+                  key={article.url || idx}
+                  onClick={() => openArticle(article)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openArticle(article); } }}
+                  className="group bg-white rounded-2xl overflow-hidden border border-secondary-100 hover:shadow-premium hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer"
+                >
+                  <div className="relative h-44 md:h-48 overflow-hidden bg-secondary-50">
+                    {article.image ? (
+                      <img src={article.image} alt={article.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-primary-50">
+                        <Newspaper className="w-12 h-12 text-primary-600/30" />
+                      </div>
+                    )}
+                    {article.categoryLabel && (
+                      <span className="absolute top-3 left-3 bg-primary-600 text-white text-[11px] md:text-xs font-bold px-2.5 py-1 rounded-full shadow-sm">{article.categoryLabel}</span>
+                    )}
+                  </div>
+                  <div className="p-4 md:p-5 flex flex-col flex-1">
+                    <h4 className="text-base md:text-[17px] font-bold text-secondary-900 mb-2 leading-snug line-clamp-2 group-hover:text-primary-700 transition-colors">{article.title}</h4>
+                    {article.excerpt && (
+                      <p className="text-secondary-800/60 text-sm leading-relaxed line-clamp-2 mb-3 flex-1">{article.excerpt}</p>
+                    )}
+                    <div className="flex items-center justify-between mt-auto pt-3 border-t border-secondary-50">
+                      {article.date && (
+                        <div className="flex items-center gap-1.5 text-secondary-800/50 text-xs font-medium">
+                          <Calendar className="w-3.5 h-3.5" />
+                          <span>{article.date}</span>
+                        </div>
+                      )}
+                      <div className="flex items-center gap-1 text-primary-600 text-xs font-semibold group-hover:gap-2 transition-all">
+                        <span>{article.content ? 'Đọc bài viết' : 'Đọc thêm'}</span>
+                        {article.content ? <ChevronRight className="w-3.5 h-3.5" /> : <ExternalLink className="w-3.5 h-3.5" />}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-16 bg-white rounded-2xl border border-secondary-100">
+              <Newspaper className="w-12 h-12 text-secondary-800/20 mx-auto mb-3" />
+              <p className="text-secondary-800/50 font-medium">Chưa có bài viết nào trong mục này.</p>
+            </div>
+          )}
+        </div>
+
+        {/* Footer */}
+        <footer className="bg-secondary-900 text-white py-10 px-4 md:px-6">
+          <div className="max-w-7xl mx-auto text-center">
+            <h2 className="text-xl font-heading font-bold mb-2">Việt Hoàng Hà<span className="text-primary-600">.</span></h2>
+            <p className="text-secondary-50/50 text-sm">&copy; 2026 Việt Hoàng Hà Real Estate. All rights reserved.</p>
+          </div>
+        </footer>
+      </div>
+    );
+  }
+
+  // ══════════════ HOME PAGE ══════════════
   return (
     <div className="min-h-screen font-body bg-secondary-50 select-none">
       {/* Navigation */}
@@ -192,7 +690,7 @@ export default function App() {
         </div>
         <div className="hidden md:flex gap-8 text-secondary-800 font-medium tracking-wide">
           <a href="#properties" className="hover:text-primary-600 transition-colors duration-200">Mua Bán</a>
-          <a href="#news" className="hover:text-primary-600 transition-colors duration-200">Tin Tức</a>
+          <button onClick={goToNews} className="hover:text-primary-600 transition-colors duration-200 cursor-pointer">Tin Tức</button>
           <a href="#why-us" className="hover:text-primary-600 transition-colors duration-200">Giới Thiệu</a>
           <a href="https://www.facebook.com/viet.hoang.ha.482723" target="_blank" rel="noopener noreferrer" className="hover:text-primary-600 transition-colors duration-200">Facebook</a>
         </div>
@@ -212,7 +710,7 @@ export default function App() {
         <div className="fixed inset-0 z-40 bg-white pt-20 px-6 md:hidden">
           <div className="flex flex-col gap-6 text-lg font-medium text-secondary-900">
             <a href="#properties" onClick={() => setMobileMenuOpen(false)} className="py-3 border-b border-secondary-50">Mua Bán Nhà Đất</a>
-            <a href="#news" onClick={() => setMobileMenuOpen(false)} className="py-3 border-b border-secondary-50">Tin Tức BĐS</a>
+            <button onClick={goToNews} className="py-3 border-b border-secondary-50 text-left cursor-pointer">Tin Tức BĐS</button>
             <a href="#why-us" onClick={() => setMobileMenuOpen(false)} className="py-3 border-b border-secondary-50">Giới Thiệu</a>
             <a href="https://www.facebook.com/viet.hoang.ha.482723" target="_blank" rel="noopener noreferrer" className="py-3 border-b border-secondary-50">Facebook</a>
             <a href="https://zalo.me/0909222596" target="_blank" rel="noopener noreferrer" className="py-3 text-primary-600 font-bold">Zalo: 0909.222.596</a>
@@ -499,105 +997,60 @@ export default function App() {
         )}
       </section>
 
-      {/* News & Analysis Section */}
+      {/* Featured News + CTA */}
       {newsData.length > 0 && (
-        <section id="news" className="py-10 md:py-16 px-4 md:px-6 max-w-7xl mx-auto">
-          <div className="text-center mb-8 md:mb-10">
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-secondary-900 mb-2 md:mb-3">
-              Tin Tức & Phân Tích BĐS
-            </h2>
-            <p className="text-secondary-800/60 font-medium text-sm md:text-base max-w-2xl mx-auto">
-              Cập nhật thông tin thị trường, kiến thức bất động sản và phân tích chuyên sâu
-            </p>
+        <section className="py-8 md:py-14 px-4 md:px-6 max-w-7xl mx-auto">
+          <div className="flex items-end justify-between mb-6 md:mb-8">
+            <div>
+              <h3 className="text-2xl md:text-3xl font-heading font-bold text-secondary-900 mb-1">Tin Tức Nổi Bật</h3>
+              <p className="text-secondary-800/60 text-sm md:text-base">Cập nhật mới nhất từ thị trường bất động sản</p>
+            </div>
+            <button onClick={goToNews} className="hidden md:flex items-center gap-1 text-primary-600 font-semibold hover:text-primary-700 transition-colors cursor-pointer group">
+              Xem tất cả <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
           </div>
-
-          {/* Tabs */}
-          <div className="flex items-center justify-center gap-2 md:gap-3 mb-8 md:mb-10">
-            {NEWS_TABS.map(tab => {
-              const TabIcon = tab.icon;
-              return (
-                <button
-                  key={tab.key}
-                  onClick={() => setActiveNewsTab(tab.key)}
-                  className={`flex items-center gap-2 px-4 md:px-6 py-2.5 md:py-3 rounded-full font-medium transition-all duration-200 cursor-pointer text-sm md:text-base min-h-[44px] ${
-                    activeNewsTab === tab.key
-                      ? 'bg-primary-600 text-white shadow-md shadow-primary-600/30'
-                      : 'bg-white text-secondary-800 hover:bg-primary-50 border border-secondary-100'
-                  }`}
-                >
-                  <TabIcon className="w-4 h-4" />
-                  <span>{tab.label}</span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* News Grid */}
-          {filteredNews.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-              {filteredNews.map((article, idx) => (
-                <div
-                  key={article.url || idx}
-                  onClick={() => openArticle(article)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openArticle(article); } }}
-                  className="group bg-white rounded-2xl overflow-hidden border border-secondary-100 hover:shadow-premium hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer"
-                >
-                  {/* Thumbnail */}
-                  <div className="relative h-44 md:h-48 overflow-hidden bg-secondary-50">
-                    {article.image ? (
-                      <img
-                        src={article.image}
-                        alt={article.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-primary-50">
-                        <Newspaper className="w-12 h-12 text-primary-600/30" />
-                      </div>
-                    )}
-                    {/* Category Badge */}
-                    {article.categoryLabel && (
-                      <span className="absolute top-3 left-3 bg-primary-600 text-white text-[11px] md:text-xs font-bold px-2.5 py-1 rounded-full shadow-sm">
-                        {article.categoryLabel}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Card Content */}
-                  <div className="p-4 md:p-5 flex flex-col flex-1">
-                    <h4 className="text-base md:text-[17px] font-bold text-secondary-900 mb-2 leading-snug line-clamp-2 group-hover:text-primary-700 transition-colors duration-200">
-                      {article.title}
-                    </h4>
-                    {article.excerpt && (
-                      <p className="text-secondary-800/60 text-sm leading-relaxed line-clamp-2 mb-3 flex-1">
-                        {article.excerpt}
-                      </p>
-                    )}
-                    <div className="flex items-center justify-between mt-auto pt-3 border-t border-secondary-50">
-                      {article.date && (
-                        <div className="flex items-center gap-1.5 text-secondary-800/50 text-xs font-medium">
-                          <Calendar className="w-3.5 h-3.5" />
-                          <span>{article.date}</span>
-                        </div>
-                      )}
-                      <div className="flex items-center gap-1 text-primary-600 text-xs font-semibold group-hover:gap-2 transition-all duration-200">
-                        <span>{article.content ? 'Đọc bài viết' : 'Đọc thêm'}</span>
-                        {article.content ? <ChevronRight className="w-3.5 h-3.5" /> : <ExternalLink className="w-3.5 h-3.5" />}
-                      </div>
-                    </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 mb-6 md:mb-8">
+            {newsData.slice(0, 3).map((article, idx) => (
+              <div
+                key={article.url || idx}
+                onClick={() => openArticle(article)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => { if (e.key === 'Enter') openArticle(article); }}
+                className="group bg-white rounded-2xl overflow-hidden border border-secondary-100 hover:shadow-premium hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer"
+              >
+                <div className="relative h-40 md:h-44 overflow-hidden bg-secondary-50">
+                  {article.image ? (
+                    <img src={article.image} alt={article.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-primary-50"><Newspaper className="w-10 h-10 text-primary-600/30" /></div>
+                  )}
+                  {article.categoryLabel && (
+                    <span className="absolute top-3 left-3 bg-primary-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-full">{article.categoryLabel}</span>
+                  )}
+                </div>
+                <div className="p-4 flex flex-col flex-1">
+                  <h4 className="text-sm md:text-base font-bold text-secondary-900 mb-2 leading-snug line-clamp-2 group-hover:text-primary-700 transition-colors">{article.title}</h4>
+                  <div className="flex items-center justify-between mt-auto pt-2">
+                    {article.date && <span className="text-secondary-800/40 text-xs">{article.date}</span>}
+                    <span className="text-primary-600 text-xs font-semibold flex items-center gap-1">Đọc <ChevronRight className="w-3 h-3" /></span>
                   </div>
                 </div>
-              ))}
+              </div>
+            ))}
+          </div>
+          {/* CTA */}
+          <div className="bg-gradient-to-r from-secondary-900 to-secondary-800 rounded-2xl md:rounded-3xl p-5 md:p-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div>
+              <h3 className="text-lg md:text-xl font-heading font-bold text-white mb-1">Xem thêm {newsData.length} bài viết</h3>
+              <p className="text-white/50 text-sm">Tin tức, Wiki BĐS, Phân tích đánh giá</p>
             </div>
-          ) : (
-            <div className="text-center py-12 bg-white rounded-2xl border border-secondary-100">
-              <Newspaper className="w-10 h-10 text-secondary-800/20 mx-auto mb-3" />
-              <p className="text-secondary-800/50 font-medium">Chua co bai viet nao trong muc nay.</p>
-            </div>
-          )}
+            <button onClick={goToNews} className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md cursor-pointer text-sm flex items-center gap-2">
+              <Newspaper className="w-4 h-4" />
+              Xem tin tức
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
         </section>
       )}
 
@@ -636,122 +1089,6 @@ export default function App() {
           </div>
         </div>
       </section>
-
-      {/* Article Reader Modal */}
-      {selectedArticle && (
-        <div className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-start justify-center overflow-y-auto" onClick={closeArticle}>
-          <div
-            className="relative w-full max-w-[800px] bg-white min-h-screen md:min-h-0 md:my-8 md:rounded-2xl md:shadow-2xl overflow-hidden"
-            onClick={e => e.stopPropagation()}
-            style={{ animation: 'articleSlideUp 0.3s ease-out' }}
-          >
-            {/* Article Header */}
-            <div className="sticky top-0 z-10 bg-white/95 backdrop-blur-sm border-b border-secondary-100 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between gap-3">
-              <div className="flex items-center gap-2 md:gap-3 min-w-0">
-                {selectedArticle.categoryLabel && (
-                  <span className="shrink-0 bg-primary-600 text-white text-[11px] md:text-xs font-bold px-2.5 py-1 rounded-full">
-                    {selectedArticle.categoryLabel}
-                  </span>
-                )}
-                {selectedArticle.date && (
-                  <span className="text-secondary-800/50 text-xs md:text-sm font-medium flex items-center gap-1.5 shrink-0">
-                    <Calendar className="w-3.5 h-3.5" />
-                    {selectedArticle.date}
-                  </span>
-                )}
-              </div>
-              <button
-                onClick={closeArticle}
-                aria-label="Đóng bài viết"
-                className="shrink-0 bg-secondary-100 hover:bg-secondary-200 text-secondary-800 p-2 min-w-[40px] min-h-[40px] flex items-center justify-center rounded-full transition-all duration-200 cursor-pointer"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Article Body */}
-            <div className="px-4 md:px-8 py-6 md:py-8">
-              {/* Title */}
-              <h1 className="font-heading font-bold text-xl md:text-2xl lg:text-[28px] text-secondary-900 leading-tight mb-5 md:mb-6">
-                {selectedArticle.title}
-              </h1>
-
-              {/* Featured Image */}
-              {selectedArticle.image && (
-                <div className="mb-6 md:mb-8 -mx-4 md:mx-0">
-                  <img
-                    src={selectedArticle.image}
-                    alt={selectedArticle.title}
-                    className="w-full h-auto object-cover md:rounded-xl"
-                  />
-                </div>
-              )}
-
-              {/* Article Content */}
-              <div className="max-w-[650px] mx-auto">
-                {selectedArticle.content && (
-                  <div className="text-secondary-800 text-base md:text-[17px] leading-[1.8] whitespace-pre-line font-body">
-                    {(() => {
-                      const contentImages = selectedArticle.contentImages || [];
-                      if (contentImages.length === 0) {
-                        return selectedArticle.content;
-                      }
-                      const paragraphs = selectedArticle.content.split('\n\n');
-                      const imageInterval = Math.max(1, Math.floor(paragraphs.length / (contentImages.length + 1)));
-                      let imageIdx = 0;
-                      return paragraphs.map((para, i) => {
-                        const showImage = imageIdx < contentImages.length && (i + 1) % imageInterval === 0 && i > 0;
-                        const currentImageIdx = showImage ? imageIdx++ : -1;
-                        return (
-                          <React.Fragment key={i}>
-                            <p className="mb-4 md:mb-5">{para}</p>
-                            {showImage && contentImages[currentImageIdx] && (
-                              <figure className="my-5 md:my-7 -mx-4 md:mx-0">
-                                <img
-                                  src={contentImages[currentImageIdx].url || contentImages[currentImageIdx]}
-                                  alt={contentImages[currentImageIdx].caption || ''}
-                                  className="w-full h-auto object-cover md:rounded-lg"
-                                  loading="lazy"
-                                />
-                                {contentImages[currentImageIdx].caption && (
-                                  <figcaption className="text-secondary-800/50 text-xs md:text-sm text-center mt-2 px-4 italic">
-                                    {contentImages[currentImageIdx].caption}
-                                  </figcaption>
-                                )}
-                              </figure>
-                            )}
-                          </React.Fragment>
-                        );
-                      });
-                    })()}
-                  </div>
-                )}
-              </div>
-            </div>
-
-            {/* Article Footer */}
-            <div className="sticky bottom-0 bg-white/95 backdrop-blur-sm border-t border-secondary-100 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between gap-3">
-              {selectedArticle.url && (
-                <a
-                  href={selectedArticle.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm font-semibold transition-colors"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  <span>Xem bài gốc</span>
-                </a>
-              )}
-              <button
-                onClick={closeArticle}
-                className="ml-auto bg-secondary-100 hover:bg-secondary-200 text-secondary-800 font-semibold px-5 py-2.5 rounded-full transition-all cursor-pointer text-sm"
-              >
-                Đóng
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Property Detail Modal — fullscreen overlay */}
       {selectedProperty && (
