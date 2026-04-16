@@ -1,0 +1,725 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "Bài Toán Thách Thức Gia Đình Trẻ: Tìm Căn Hộ 3 Phòng Ngủ Ưng Ý Ở Đâu?",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/bai-toan-thach-thuc-gia-dinh-tre-tim-can-ho-3-phong-ngu-ung-y-o-dau-853869",
+      "image": "https://img.iproperty.com.my/angel/1110x400-fit/wp-content/uploads/sites/7/2026/04/3-6.png",
+      "excerpt": "Thay vì kịch bản đổi nhà sau 5 năm, nhiều gia đình trẻ đang chuyển hướng sang căn hộ 3 phòng ngủ (PN) ở phía Đông Hà Nội như một chiến lược đầu tư cho tương lai: mua một lần, hưởng lâu dài.",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "16/04/2026 15:00"
+    },
+    {
+      "id": 2,
+      "title": "Khu Vực Phía Tây TP.HCM: Những Tín Hiệu Mới Trên Bản Đồ Bất Động Sản",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/khu-vuc-phia-tay-tp.hcm-nhung-tin-hieu-moi-tren-ban-do-bat-dong-san-853861",
+      "image": "",
+      "excerpt": "",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "16/04/2026 11:50"
+    },
+    {
+      "id": 3,
+      "title": "Vân Đồn Vào Mùa Hút Khách: Crystal Holidays Harbour Tung Ưu Đãi Lớn Mừng Đại Lễ",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/van-don-vao-mua-hut-khach-crystal-holidays-harbour-tung-uu-dai-lon-mung-dai-le-853843",
+      "image": "",
+      "excerpt": "",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "16/04/2026 08:00"
+    },
+    {
+      "id": 4,
+      "title": "Căn Hộ Diamond Boulevard Gây Chú Ý Với Mức Giá Từ 36 Triệu/M2 Ngay Khu Đông Bắc TP.HCM",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/can-ho-diamond-boulevard-gay-chu-y-voi-muc-gia-tu-36-trieum2-ngay-khu-dong-bac-tp.hcm-853766",
+      "image": "",
+      "excerpt": "",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "16/04/2026 08:00"
+    },
+    {
+      "id": 5,
+      "title": "Bất Động Sản Quý 1/2026: Chung Cư Dẫn Dắt, Đất Nền \"Nhạy\" Với Biến Động, Nhà Riêng Phân Hóa Theo Áp Lực Giá",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/bat-dong-san-quy-12026-chung-cu-dan-dat-dat-nen-nhay-voi-bien-dong-nha-rieng-phan-hoa-theo-ap-luc-gia-853817",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/2-Cac-loai-hinh-BDS.png",
+      "excerpt": "Dữ liệu của nền tảng công nghệ Batdongsan.com.vn phản ảnh một trạng thái quen thuộc nhưng rõ nét hơn: phân hóa theo từng loại hình. Chung cư dẫn dắt đà hồi phục, đất nền chưa điều chỉnh sâu về giá, trong khi nhà riêng diễn biến trái ngược giữa Hà Nội và TP.HCM.",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "15/04/2026 12:11"
+    },
+    {
+      "id": 6,
+      "title": "Thị Trường Bất Động Sản Quý 1/2026: Sự Phân Hóa Trong Vận Hội Mới",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/thi-truong-bat-dong-san-quy-12026-su-phan-hoa-trong-van-hoi-moi-853807",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/1-Tong-quan-thi-truong-BDS.png",
+      "excerpt": "Đại diện nền tảng công nghệ Batdongsan.com.vn nhận định kinh tế Việt Nam đầu năm 2026 có nhiều điểm sáng. Dưới tác động đồng thời của yếu tố vĩ mô, tín dụng và hành vi người mua, xu hướng phân hóa của thị trường bất động sản ngày càng rõ nét.",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "15/04/2026 11:39"
+    },
+    {
+      "id": 7,
+      "title": "\"Căn Hộ Vàng\" Bên Vịnh Kỳ Quan – Điểm Đến Mới Của Bất Động Sản Dòng Tiền",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/can-ho-vang-ben-vinh-ky-quan-diem-den-moi-cua-bat-dong-san-dong-tien-853798",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/Anh-1-8.jpg",
+      "excerpt": "Căn hộ du lịch bên vịnh Bái Tử Long thuộc phân khúc bất động sản dòng tiền đang thu hút nhà đầu tư thứ cấp có dòng vốn nhỏ nhưng muốn cùng lúc đạt được hai mục tiêu: tích sản và có lợi nhuận ngay khi sở hữu.",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "15/04/2026 11:00"
+    },
+    {
+      "id": 8,
+      "title": "The Flame Vine – Giá Trị Song Hành Từ Hạ Tầng Metro Và Tiện Ích Đẳng Cấp Tại Hinode Royal Park",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/the-flame-vine-gia-tri-song-hanh-tu-ha-tang-metro-va-tien-ich-dang-cap-tai-hinode-royal-park-853776",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/anh-2-1-3-scaled.jpg",
+      "excerpt": "Trong bối cảnh thị trường bất động sản phía Tây Hà Nội đang chuyển mình mạnh mẽ theo mô hình TOD (Transit-Oriented Development), The Flame Vine nổi lên như một điểm sáng nhờ sở hữu \"lợi thế kép\": vị trí chiến lược liền kề các tuyến metro trọng điểm và không gian sống chuẩn mực trong lòng đại đô thị Hinode Royal Park (Hoài Đức).",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "15/04/2026 10:00"
+    },
+    {
+      "id": 9,
+      "title": "Hầm Đường Bộ 2 Tầng Đầu Tiên Của Việt Nam Sắp Khởi Công: \"Cú Hích\" Lịch Sử Cho Bất Động Sản Hạng Sang Tây Hồ Tây",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/ham-duong-bo-2-tang-dau-tien-cua-viet-nam-sap-khoi-cong-cu-hich-lich-su-cho-bat-dong-san-hang-sang-tay-ho-tay-853741",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/Ham-qua-song.-mobile.png",
+      "excerpt": "Việt Nam chuẩn bị triển khai một hầm đường bộ vượt sông có cấu trúc hai tầng – công trình mang tính biểu tượng, đánh dấu bước ngoặt lớn trong tư duy phát triển đô thị hiện đại.",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "14/04/2026 14:01"
+    },
+    {
+      "id": 10,
+      "title": "Trung Tâm Mới Của TP.HCM: Dòng Tiền Và Hạ Tầng Vẽ Lại Bản Đồ Giá Trị",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/trung-tam-moi-cua-tp.hcm-dong-tien-va-ha-tang-ve-lai-ban-do-gia-tri-853606",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/22S07060-scaled.jpg",
+      "excerpt": "Cùng với xu hướng phát triển đa trung tâm của TP.HCM, phường Tân Thành ngày càng được nhiều nhà đầu tư nhìn nhận như một tọa độ tăng trưởng đáng chú ý của khu Đông, nhờ hội tụ hệ sinh thái hạ tầng, logistics và giao thương quy mô lớn hiếm có.",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "14/04/2026 08:00"
+    },
+    {
+      "id": 11,
+      "title": "Xu Hướng Sống Xanh Định Hình \"Cuộc Chơi\" Tại Đô Thị Vệ Tinh Phía Tây TP.HCM",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/xu-huong-song-xanh-dinh-hinh-cuoc-choi-tai-do-thi-ve-tinh-phia-tay-tp.hcm-853718",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/Anh-1-7.jpg",
+      "excerpt": "Xu hướng sống xanh không chỉ thay đổi cách người dân lựa chọn nhà ở, mà còn định hình lại hướng phát triển của thị trường bất động sản vệ tinh, đặc biệt tại khu Tây TP.HCM.",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "14/04/2026 08:00"
+    },
+    {
+      "id": 12,
+      "title": "Điều Gì Khiến Ciputra Từ \"Ốc Đảo Thượng Lưu\" Thành Lõi Trung Tâm Mới Của Hà Nội?",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/dieu-gi-khien-ciputra-tu-oc-dao-thuong-luu-thanh-loi-trung-tam-moi-cua-ha-noi-853699",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/Anh-1-4-scaled.jpg",
+      "excerpt": "Toàn cảnh những hạ tầng chiến lược đang đưa Ciputra từ một khu đô thị thượng lưu quen thuộc thành toạ độ \"trung tâm của trung tâm\" trên bản đồ tái thiết Hà Nội, định hình lõi giá trị đắt giá bậc nhất Thủ đô.",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "13/04/2026 15:20"
+    },
+    {
+      "id": 13,
+      "title": "Vì Sao Bất Động Sản Trung Tâm Thủ Đô Luôn Được Săn Đón Bất Chấp Giá Cao?",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/vi-sao-bat-dong-san-trung-tam-thu-do-luon-duoc-san-don-bat-chap-gia-cao-853685",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/Anh-cover-scaled.jpg",
+      "excerpt": "Bất chấp mọi chu kỳ kinh tế, bất động sản tại các thủ đô lớn luôn giữ vai trò \"tài sản trụ cột\" – vừa tích lũy giá trị, vừa định danh vị thế.",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "13/04/2026 14:00"
+    },
+    {
+      "id": 14,
+      "title": "\"Thế Thuận Giao - Sống Tầm Cao\": Chuẩn Sống Mới Tại AVA Center",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/the-thuan-giao-song-tam-cao-chuan-song-moi-tai-ava-center-853660",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/hinh-1-thumbnail.jpg",
+      "excerpt": "Cùng với sự phát triển nhanh của các đô thị lớn, khái niệm về một nơi an cư cũng đang dần thay đổi. Người mua nhà ngày nay không chỉ tìm kiếm một căn hộ để ở, mà còn mong muốn một môi trường sống chất lượng.",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "13/04/2026 08:00"
+    },
+    {
+      "id": 15,
+      "title": "Bespoke Living - Dẫn Đầu Phong Cách Trải Nghiệm Tại Gia Với Hệ Tiện Ích Đa Tầng",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/bespoke-living-dan-dau-phong-cach-trai-nghiem-tai-gia-voi-he-tien-ich-da-tang-853666",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/KHI_CV-TINH-HOA-HOI-TU-2-scaled.jpg",
+      "excerpt": "Khi chuẩn sống ngày càng chú trọng về giá trị trải nghiệm, Bespoke Living trở thành lựa chọn nổi bật, mang đến đặc quyền tận hưởng tại gia với hệ tiện ích đa tầng được quy hoạch bài bản và chỉn chu.",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "11/04/2026 08:00"
+    },
+    {
+      "id": 16,
+      "title": "Sunshine Bay Retreat: Mảnh Ghép Định Hình \"Thủ Thiêm Bên Biển\" Trong Chu Kỳ Tăng Trưởng Mới",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/sunshine-bay-retreat-manh-ghep-dinh-hinh-thu-thiem-ben-bien-trong-chu-ky-tang-truong-moi-853625",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/Anh-1-Anh-cover-1-scaled.jpg",
+      "excerpt": "Hạ tầng liên vùng đang rút ngắn khoảng cách giữa TP.HCM và các đô thị ven biển, mở ra làn sóng dịch chuyển mới về không gian sống và đầu tư.",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "10/04/2026 11:00"
+    },
+    {
+      "id": 17,
+      "title": "VietnamGroove- Đại Lý Chiến Lược Độc Quyền Phân Phối Hải Vân Bay, Bùng Nổ Cùng Sự Kiện Ra Quân Toàn Quốc",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/vietnamgroove-dai-ly-chien-luoc-doc-quyen-phan-phoi-hai-van-bay-bung-no-cung-su-kien-ra-quan-toan-quoc-853635",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/Hinh-kick-off.jpg",
+      "excerpt": "VietnamGroove đã có hành trình nhiều năm đồng hành cùng các dự án của Vinhomes trên phạm vi toàn quốc, tích lũy nền tảng kinh nghiệm vững chắc trong phân phối bất động sản.",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "10/04/2026 10:29"
+    },
+    {
+      "id": 18,
+      "title": "Bất Chấp Biến Động, Giới Siêu Giàu Thế Giới Vẫn Đổ Tiền Vào Bất Động Sản Hàng Hiệu",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/bat-chap-bien-dong-gioi-sieu-giau-the-gioi-van-do-tien-vao-bat-dong-san-hang-hieu-853615",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/A%CC%89nh-1-1-1-scaled.jpg",
+      "excerpt": "Liệu thị trường bất động sản hàng hiệu (Branded Residences) có thể vượt qua những biến động toàn cầu? Một giao dịch \"khủng\" vừa diễn ra ở Dubai cho thấy sức hút của thị trường căn hộ hàng hiệu bất chấp biến động.",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "09/04/2026 14:00"
+    },
+    {
+      "id": 19,
+      "title": "Rót 37 Tỷ Đô Vào Hạ Tầng, Đông Bắc TP.HCM Hưởng Được Lợi Ích Gì?",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/rot-37-ty-do-vao-ha-tang-dong-bac-tp.hcm-huong-duoc-loi-ich-gi-853583",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/avar.jpg",
+      "excerpt": "Hơn 37 tỷ USD được đầu tư, 9 tuyến metro sẽ được hoàn thiện trước năm 2035.",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "09/04/2026 08:00"
+    },
+    {
+      "id": 20,
+      "title": "Toàn Cảnh Thị Trường BĐS Quý 1/2026: Góc Nhìn Dữ Liệu Trong Một Thị Trường Đang Phân Hóa",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/toan-canh-thi-truong-bds-quy-12026-goc-nhin-du-lieu-trong-mot-thi-truong-dang-phan-hoa-853597",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/Facbook-Event-Cover.jpg",
+      "excerpt": "Trong bối cảnh ngành bất động sản bước vào năm 2026 với nhiều biến động từ kinh tế vĩ mô, tín dụng và tâm lý người mua, Batdongsan.com.vn tổ chức sự kiện \"Toàn cảnh thị trường Bất động sản Quý 1/2026\".",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "08/04/2026 16:35"
+    },
+    {
+      "id": 21,
+      "title": "Nghệ Thuật Nuôi Dưỡng Nhịp Sống Cân Bằng Từ Hệ Tiện Ích Đặc Quyền Tại LUMIÈRE Essence Peak",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/nghe-thuat-nuoi-duong-nhip-song-can-bang-tu-he-tien-ich-dac-quyen-tai-lumiere-essence-peak-853573",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/Anh-4-1.png",
+      "excerpt": "Tọa lạc tại tâm điểm Global Gate - Hà Nội, LUMIÈRE Essence Peak khai mở hành trình sống cân bằng an nhiên qua bộ sưu tập tiện ích đa tầng và hệ sinh thái đô thị quốc tế.",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "08/04/2026 14:00"
+    },
+    {
+      "id": 22,
+      "title": "Mô Hình Đô Thị Đang Trở Thành Xu Hướng Tại Các Thành Phố Lớn",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/mo-hinh-do-thi-dang-tro-thanh-xu-huong-tai-cac-thanh-pho-lon-853466",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/A%CC%89nh-1-update.png",
+      "excerpt": "Trong bối cảnh đô thị hóa nhanh và quỹ đất tại khu vực trung tâm ngày càng hạn chế, mô hình khu đô thị tích hợp nhiều chức năng đang trở thành xu hướng phát triển tại các thành phố lớn.",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "08/04/2026 08:00"
+    },
+    {
+      "id": 23,
+      "title": "Batdongsan.com.vn Đồng Hành Cùng Môi Giới Tìm Lời Giải Bán Hàng Hiệu Quả",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/batdongsan.com.vn-dong-hanh-cung-moi-gioi-tim-loi-giai-ban-hang-hieu-qua-853544",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/DSC06070-1-scaled.jpg",
+      "excerpt": "Trong bối cảnh thị trường bất động sản bước vào giai đoạn điều chỉnh và phân hóa rõ nét, Batdongsan.com.vn đã khởi động chuỗi đối thoại chuyên sâu \"Coffee Talk\".",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "07/04/2026 16:03"
+    },
+    {
+      "id": 24,
+      "title": "Bespoke Living: Khi Bình Dương Bước Vào Kỷ Nguyên Chuẩn Sống Cá Nhân Hóa",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/bespoke-living-khi-binh-duong-buoc-vao-ky-nguyen-chuan-song-ca-nhan-hoa-853531",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/Hinh-3.jpg",
+      "excerpt": "Sự tăng trưởng ngày càng mạnh mẽ của đội ngũ \"chất xám cao\" đang kéo theo nhu cầu sống hoàn toàn khác biệt tại Bình Dương. Trong bối cảnh đó, Bespoke living trở thành xu hướng phát triển tất yếu.",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "05/04/2026 08:00"
+    },
+    {
+      "id": 25,
+      "title": "Dòng Vốn, Dòng Người, Dòng Kinh Tế Đổ Về Trung Tâm Mới Của Cần Thơ",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/dong-von-dong-nguoi-dong-kinh-te-do-ve-trung-tam-moi-cua-can-tho-853517",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/Ho-Trung-Tam-1-1.jpg",
+      "excerpt": "Từ một khu vực giàu tiềm năng, Nam Cần Thơ đang từng bước trở thành điểm đến của dòng cư dân chất lượng cao, hoạt động thương mại - dịch vụ và các dự án đô thị kiểu mẫu.",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "04/04/2026 08:00"
+    },
+    {
+      "id": 26,
+      "title": "Sunshine Bay Retreat: Thiên Đường Nghỉ Dưỡng Sôi Động Bên Bờ Đại Dương",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/sunshine-bay-retreat-thien-duong-nghi-duong-soi-dong-ben-bo-dai-duong-853506",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/Anh-4-scaled.jpg",
+      "excerpt": "Sunshine Bay Retreat mở ra hành trình \"ba tầng cảm xúc\" - trên bờ, dưới sóng và giữa tầng mây - nơi nối liền mặt đất, đại dương và bầu trời.",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "03/04/2026 16:21"
+    },
+    {
+      "id": 27,
+      "title": "Tây Hồ Tây 2026: Tâm Điểm Của Kỷ Nguyên Tái Thiết Và Những \"Cú Hích\" Hạ Tầng Lịch Sử",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/tay-ho-tay-2026-tam-diem-cua-ky-nguyen-tai-thiet-va-nhung-cu-hich-ha-tang-lich-su-853494",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/TT01-scaled.jpg",
+      "excerpt": "Hà Nội đang bước vào giai đoạn chuyển mình lịch sử với Quy hoạch Tổng thể Thủ đô tầm nhìn 100 năm. Trong cuộc \"đại tái thiết\" này, Tây Hồ Tây nổi lên như một \"Phố Đông\" của Thượng Hải.",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "03/04/2026 16:00"
+    },
+    {
+      "id": 28,
+      "title": "Trục Đại Lộ 60m TP.HCM Sắp Có Trung Tâm Thương Mại Mới, Bên Cạnh AEON Mall Và Lotte Mart",
+      "url": "https://wiki.batdongsan.com.vn/tin-tuc/truc-dai-lo-60m-tp.hcm-sap-co-trung-tam-thuong-mai-moi-ben-canh-aeon-mall-va-lotte-mart-853457",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/04/Anh-1-hot4-16h-scaled.jpg",
+      "excerpt": "Nhà phát triển Phát Đạt vừa công bố triển khai trung tâm thương mại 3 tầng Lusso Plaza tại khối đế, quy tụ loạt thương hiệu uy tín.",
+      "category": "tin-tuc",
+      "categoryLabel": "Tin tức",
+      "date": "02/04/2026 16:44"
+    },
+    {
+      "id": 29,
+      "title": "Thị Trường Bất Động Sản – \"Nơi Trú Ẩn An Toàn\" Giữa Biến Động",
+      "url": "https://wiki.batdongsan.com.vn/wiki/thi-truong-bat-dong-san-%E2%80%93-noi-tru-an-an-toan-giua-bien-dong-853431",
+      "image": "https://img.iproperty.com.my/angel/1110x400-fit/wp-content/uploads/sites/7/2026/04/Batdongsan-copy.jpg",
+      "excerpt": "Khi thị trường toàn cầu bước vào giai đoạn bất ổn gia tăng do các xung đột tại Trung Đông, thị trường bất động sản Việt Nam đang nổi lên như một \"nơi trú ẩn an toàn\" đáng chú ý.",
+      "category": "wiki-bds",
+      "categoryLabel": "Wiki BĐS",
+      "date": "02/04/2026 10:00"
+    },
+    {
+      "id": 30,
+      "title": "Bất Động Sản Khánh Hòa Sau Sáp Nhập: Gợi Mở Cơ Hội Và Chiến Lược Đầu Tư Hiệu Quả",
+      "url": "https://wiki.batdongsan.com.vn/wiki/bat-dong-san-khanh-hoa-sau-sap-nhap-goi-mo-co-hoi-va-chien-luoc-dau-tu-hieu-qua-852863",
+      "image": "",
+      "excerpt": "",
+      "category": "wiki-bds",
+      "categoryLabel": "Wiki BĐS",
+      "date": "03/03/2026 16:54"
+    },
+    {
+      "id": 31,
+      "title": "Giải Bài Toán Mua Nhà Cho Giới Công Sở Trước Áp Lực Lãi Suất Vay Tăng",
+      "url": "https://wiki.batdongsan.com.vn/wiki/giai-bai-toan-mua-nha-cho-gioi-cong-so-truoc-ap-luc-lai-suat-vay-tang-852851",
+      "image": "",
+      "excerpt": "",
+      "category": "wiki-bds",
+      "categoryLabel": "Wiki BĐS",
+      "date": "02/03/2026 10:00"
+    },
+    {
+      "id": 32,
+      "title": "Lãi Suất Thả Nổi Tăng, Vì Sao Nhiều Người Chưa Chuyển Đổi Gói Vay Mua Nhà?",
+      "url": "https://wiki.batdongsan.com.vn/wiki/lai-suat-tha-noi-tang-vi-sao-nhieu-nguoi-chua-chuyen-doi-goi-vay-mua-nha-852565",
+      "image": "",
+      "excerpt": "",
+      "category": "wiki-bds",
+      "categoryLabel": "Wiki BĐS",
+      "date": "02/02/2026 15:00"
+    },
+    {
+      "id": 33,
+      "title": "Lãi Suất Vay Mua Nhà Ngân Hàng KBank Mới Nhất Tháng 1/2026",
+      "url": "https://wiki.batdongsan.com.vn/wiki/lai-suat-vay-mua-nha-ngan-hang-kbank-851709",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/12/2025-Glassdoor_01.jpg",
+      "excerpt": "KBank (Kasikornbank) hiện là một trong những ngân hàng ngoại có chính sách vay mua nhà cạnh tranh nhất tại thị trường Việt Nam.",
+      "category": "wiki-bds",
+      "categoryLabel": "Wiki BĐS",
+      "date": "20/01/2026 00:36"
+    },
+    {
+      "id": 34,
+      "title": "Năm 2026 Tuổi Nào Làm Nhà Đẹp Nhất? Tất Tật Thông Tin Về Xem Tuổi Làm Nhà 2026",
+      "url": "https://wiki.batdongsan.com.vn/wiki/xem-tuoi-lam-nha-dep-790270",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/12/tuoi-lam-nha-2026.png",
+      "excerpt": "Bài viết này sẽ phân tích chi tiết từ đặc điểm phong thủy năm 2026, đến cách xác định tuổi hợp xây nhà.",
+      "category": "wiki-bds",
+      "categoryLabel": "Wiki BĐS",
+      "date": "13/01/2026 07:35"
+    },
+    {
+      "id": 35,
+      "title": "Mệnh Hỏa Hợp Màu Gì? Những Màu Sắc Mang Lại May Mắn, Tài Lộc Cho Người Mệnh Hỏa",
+      "url": "https://wiki.batdongsan.com.vn/wiki/menh-hoa-hop-mau-gi-765539",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2023/05/menh-hoa-hop-mau-gi-2.jpg",
+      "excerpt": "Mệnh Hỏa đại diện cho lửa, biểu trưng cho sức sống mạnh mẽ và tinh thần nhiệt huyết, sôi nổi.",
+      "category": "wiki-bds",
+      "categoryLabel": "Wiki BĐS",
+      "date": "12/01/2026 08:37"
+    },
+    {
+      "id": 36,
+      "title": "Thách Thức Lãi Suất Với Người Mua Nhà: Nên Mua Ngay Hay Chờ Đợi?",
+      "url": "https://wiki.batdongsan.com.vn/wiki/thach-thuc-lai-suat-voi-nguoi-mua-nha-nen-mua-ngay-hay-cho-doi-852086",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2026/01/image-6.png",
+      "excerpt": "Bước sang năm 2026, giấc mơ sở hữu \"ngôi nhà đầu tiên\" của giới công sở đang đứng trước một nghịch lý lớn.",
+      "category": "wiki-bds",
+      "categoryLabel": "Wiki BĐS",
+      "date": "09/01/2026 10:00"
+    },
+    {
+      "id": 37,
+      "title": "Tìm Hiểu Khu Công Nghiệp Bình Xuyên Và Thị Trường Bất Động Sản Khu Vực Lân Cận",
+      "url": "https://wiki.batdongsan.com.vn/wiki/khu-cong-nghiep-binh-xuyen-825992",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/12/KCN-Binh-Xuyen.jpg",
+      "excerpt": "Khu công nghiệp Bình Xuyên, Phú Thọ được định hướng xây dựng thành một khu công nghiệp đa ngành với công nghệ hiện đại và thân thiện với môi trường.",
+      "category": "wiki-bds",
+      "categoryLabel": "Wiki BĐS",
+      "date": "30/12/2025 08:19"
+    },
+    {
+      "id": 38,
+      "title": "Biểu Lãi Suất Ngân Hàng Vietcombank Tháng 12/2025",
+      "url": "https://wiki.batdongsan.com.vn/wiki/lai-suat-ngan-hang-vietcombank-evr-794720",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/05/lai-suat-viet-combank-2025.jpg",
+      "excerpt": "Bài viết sẽ tổng hợp biểu lãi suất ngân hàng Vietcombank mới nhất hiện nay, gồm lãi suất tiền gửi tiết kiệm và lãi suất cho vay đang áp dụng.",
+      "category": "wiki-bds",
+      "categoryLabel": "Wiki BĐS",
+      "date": "25/12/2025 08:40"
+    },
+    {
+      "id": 39,
+      "title": "Năm 2026 Mệnh Gì? Xem Tuổi Sinh Con Năm Bính Ngọ 2026",
+      "url": "https://wiki.batdongsan.com.vn/wiki/nam-2026-menh-gi-849905",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/11/nam-2026-menh-gi.png",
+      "excerpt": "Bài viết sẽ giúp bạn tìm hiểu người sinh năm 2026 mệnh gì, hợp màu sắc và hướng nào.",
+      "category": "wiki-bds",
+      "categoryLabel": "Wiki BĐS",
+      "date": "25/12/2025 08:09"
+    },
+    {
+      "id": 40,
+      "title": "Làm Sao Để Biết Mình Mệnh Gì? Bảng Tra Cứu Cung Mệnh Cho Các Tuổi Từ 1930-2030",
+      "url": "https://wiki.batdongsan.com.vn/wiki/lam-sao-de-biet-minh-menh-gi-818945",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/12/2-cung-menh-la-gi.jpg",
+      "excerpt": "Làm sao để biết mình mệnh gì trong ngũ hành? Bài viết sau sẽ chỉ bạn cách biết mình mệnh gì cũng như ứng dụng mệnh ngũ hành trong cuộc sống.",
+      "category": "wiki-bds",
+      "categoryLabel": "Wiki BĐS",
+      "date": "25/12/2025 07:37"
+    },
+    {
+      "id": 41,
+      "title": "Lãi Suất Ngân Hàng Agribank Tháng 12/2025 Bao Nhiêu?",
+      "url": "https://wiki.batdongsan.com.vn/wiki/lai-suat-ngan-hang-agribank-evr-794483",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/11/lai-suat-ngan-hang-agribank.jpg",
+      "excerpt": "Trong tháng 12, Agribank áp dụng khung lãi suất tiền gửi cao nhất ở kỳ hạn 24 tháng, đồng thời tung gói vay mua nhà ưu đãi chỉ từ 5,5%/năm.",
+      "category": "wiki-bds",
+      "categoryLabel": "Wiki BĐS",
+      "date": "25/12/2025 07:14"
+    },
+    {
+      "id": 42,
+      "title": "Năm 2026 Có Nhuận Không? Giải Thích Chi Tiết Theo Cả Lịch Dương Và Lịch Âm",
+      "url": "https://wiki.batdongsan.com.vn/wiki/nam-2026-co-nhuan-khong-851484",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/12/image-15.jpeg",
+      "excerpt": "Mỗi khi bước sang một năm mới, câu hỏi \"năm ... có nhuận không?\" luôn được nhiều người quan tâm.",
+      "category": "wiki-bds",
+      "categoryLabel": "Wiki BĐS",
+      "date": "24/12/2025 11:00"
+    },
+    {
+      "id": 43,
+      "title": "Tổng Hợp 4 Cách Tra Cứu Thuế Đất Online Chính Xác Nhất",
+      "url": "https://wiki.batdongsan.com.vn/wiki/tra-cuu-thue-dat-online-848945",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/10/tra-cuu-thue-dat-online-2.jpg",
+      "excerpt": "Với sự bùng nổ của chuyển đổi số quốc gia, giờ đây mọi công dân đều có thể chủ động tra cứu thuế đất online chỉ với vài thao tác đơn giản.",
+      "category": "wiki-bds",
+      "categoryLabel": "Wiki BĐS",
+      "date": "24/12/2025 08:42"
+    },
+    {
+      "id": 44,
+      "title": "Biên Bản Thanh Lý Hợp Đồng Thuê Nhà Và Những Điều Cần Lưu Ý",
+      "url": "https://wiki.batdongsan.com.vn/wiki/bien-ban-thanh-ly-hop-dong-thue-nha-825670",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2024/12/hop-dong-thue-nha.jpg",
+      "excerpt": "Khi một hợp đồng thuê nhà kết thúc, việc lập biên bản thanh lý hợp đồng thuê nhà là rất quan trọng.",
+      "category": "wiki-bds",
+      "categoryLabel": "Wiki BĐS",
+      "date": "12/12/2025 08:17"
+    },
+    {
+      "id": 45,
+      "title": "Tổng Hợp 3 Cách Kiểm Tra Nợ Xấu Bằng CMND/CCCD Nhanh Chóng Nhất",
+      "url": "https://wiki.batdongsan.com.vn/wiki/kiem-tra-no-xau-bang-cmnd-851271",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/12/image-5-6.png",
+      "excerpt": "Bạn đang có dự định vay vốn ngân hàng, mua trả góp hay mở thẻ tín dụng nhưng lo lắng hồ sơ bị từ chối?",
+      "category": "wiki-bds",
+      "categoryLabel": "Wiki BĐS",
+      "date": "11/12/2025 08:06"
+    },
+    {
+      "id": 46,
+      "title": "Thông Tin Chi Tiết Và Tiến Độ Dự Án Đường Sắt Hà Nội - Quảng Ninh",
+      "url": "https://wiki.batdongsan.com.vn/wiki/duong-sat-ha-noi-quang-ninh-851089",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/12/image-5-3.png",
+      "excerpt": "Thông tin Vingroup làm đường sắt Hà Nội - Quảng Ninh đang tạo nên một cơn sốt thực sự trên thị trường hạ tầng và bất động sản miền Bắc.",
+      "category": "wiki-bds",
+      "categoryLabel": "Wiki BĐS",
+      "date": "09/12/2025 13:56"
+    },
+    {
+      "id": 47,
+      "title": "Cập Nhật Lãi Suất Ngân Hàng BIDV Tháng 12/2025",
+      "url": "https://wiki.batdongsan.com.vn/wiki/lai-suat-ngan-hang-bidv-evr-801019",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/09/lai-suat-ngan-hang-bidv.jpg",
+      "excerpt": "Trong tháng 12, BIDV vẫn giữ ổn định biểu lãi suất tiết kiệm, trong đó gửi tiết kiệm online đang có mức cao nhất 4,9%/năm.",
+      "category": "wiki-bds",
+      "categoryLabel": "Wiki BĐS",
+      "date": "08/12/2025 10:37"
+    },
+    {
+      "id": 48,
+      "title": "Nhận Biết Mảnh Đất Có Phong Thủy Xấu Và Cách Hóa Giải",
+      "url": "https://wiki.batdongsan.com.vn/wiki/nhan-biet-manh-dat-co-phong-thuy-xau-va-cach-hoa-giai-109178",
+      "image": "https://img.iproperty.com.my/angel-legacy-bds/520x300-crop/2022/06/16/wxbwknn6/20220616093842-9da5.jpg",
+      "excerpt": "Chọn đất tốt về phong thủy sẽ có tác động tích cực đến sức khỏe, tinh thần của người cư ngụ.",
+      "category": "wiki-bds",
+      "categoryLabel": "Wiki BĐS",
+      "date": "05/12/2025 18:08"
+    },
+    {
+      "id": 49,
+      "title": "Bảng Lãi Suất Ngân Hàng VietinBank Tháng 12/2025",
+      "url": "https://wiki.batdongsan.com.vn/wiki/lai-suat-ngan-hang-vietinbank-evr-796523",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2024/03/lai-suat-ngan-hang-vietinbank.jpg",
+      "excerpt": "Trong tháng 12, VietinBank niêm yết mức lãi suất tiết kiệm cao nhất chạm ngưỡng 5,0%/năm.",
+      "category": "wiki-bds",
+      "categoryLabel": "Wiki BĐS",
+      "date": "05/12/2025 11:02"
+    },
+    {
+      "id": 50,
+      "title": "Năm 2026 Tuổi Nào Phạm Thái Tuế? 5 Con Giáp Cần Đặc Biệt Cẩn Trọng",
+      "url": "https://wiki.batdongsan.com.vn/wiki/nam-2026-tuoi-nao-pham-thai-tue-850933",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/12/Nam-2026-tuoi-nao-pham-thai-tue.png",
+      "excerpt": "Theo quan niệm tử vi phong thủy, mỗi năm trôi qua sẽ có những con giáp nhận được sự hỗ trợ của các cát tinh.",
+      "category": "wiki-bds",
+      "categoryLabel": "Wiki BĐS",
+      "date": "04/12/2025 09:02"
+    },
+    {
+      "id": 51,
+      "title": "\"Điểm Danh\" Động Lực Tăng Trưởng Của Thị Trường Bất Động Sản Việt Nam Trong Năm 2026",
+      "url": "https://wiki.batdongsan.com.vn/phan-tich-danh-gia/diem-danh-dong-luc-tang-truong-cua-thi-truong-bat-dong-san-viet-nam-trong-nam-2026-cd-hn-850787",
+      "image": "https://img.iproperty.com.my/angel/1110x400-fit/wp-content/uploads/sites/7/2025/12/tt-1.jpg",
+      "excerpt": "Năm 2025 sắp kết thúc, bước sang năm 2026, thị trường bất động sản Việt Nam được dự báo bước vào giai đoạn hồi phục với những tăng trưởng nhất định.",
+      "category": "phan-tich",
+      "categoryLabel": "Phân tích",
+      "date": "05/12/2025 08:01"
+    },
+    {
+      "id": 52,
+      "title": "Sau Sáp Nhập, Đô Thị Vệ Tinh Nào Của TP.HCM Tăng Tốc Trên Thị Trường Bất Động Sản?",
+      "url": "https://wiki.batdongsan.com.vn/phan-tich-danh-gia/sau-sap-nhap-do-thi-ve-tinh-nao-cua-tp.hcm-tang-toc-tren-thi-truong-bat-dong-san-cd-hcm-850401",
+      "image": "",
+      "excerpt": "",
+      "category": "phan-tich",
+      "categoryLabel": "Phân tích",
+      "date": "28/11/2025 08:48"
+    },
+    {
+      "id": 53,
+      "title": "\"Bất Động Sản TP.HCM Sau Sáp Nhập: Sự Hình Thành Của Mô Hình Đa Trung Tâm\"",
+      "url": "https://wiki.batdongsan.com.vn/phan-tich-danh-gia/bat-dong-san-tp.hcm-sau-sap-nhap-su-hinh-thanh-cua-mo-hinh-da-trung-tam-cd-hcm-850168",
+      "image": "",
+      "excerpt": "",
+      "category": "phan-tich",
+      "categoryLabel": "Phân tích",
+      "date": "27/11/2025 10:09"
+    },
+    {
+      "id": 54,
+      "title": "Thị Trường Bất Động Sản Việt Nam: Những Giải Pháp Phát Triển Bền Vững",
+      "url": "https://wiki.batdongsan.com.vn/phan-tich-danh-gia/thi-truong-bat-dong-san-viet-nam-nhung-giai-phap-phat-trien-ben-vung-cd-hn-849644",
+      "image": "",
+      "excerpt": "",
+      "category": "phan-tich",
+      "categoryLabel": "Phân tích",
+      "date": "20/11/2025 11:05"
+    },
+    {
+      "id": 55,
+      "title": "Thị Trường Bất Động Sản Công Nghiệp Tiếp Tục Tăng Trưởng",
+      "url": "https://wiki.batdongsan.com.vn/phan-tich-danh-gia/thi-truong-bat-dong-san-cong-nghiep-tiep-tuc-tang-truong-cd-hn-849072",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/10/bds-cn.jpg",
+      "excerpt": "Bất chấp các biến động của thị trường, liên tiếp trong nhiều năm nay, bất động sản công nghiệp vẫn là ngôi sao sáng của thị trường bất động sản.",
+      "category": "phan-tich",
+      "categoryLabel": "Phân tích",
+      "date": "06/11/2025 23:50"
+    },
+    {
+      "id": 56,
+      "title": "Căn Hộ Chung Cư Tiếp Tục Dẫn Dắt Nguồn Cung Và Thanh Khoản",
+      "url": "https://wiki.batdongsan.com.vn/phan-tich-danh-gia/can-ho-chung-cu-tiep-tuc-dan-dat-nguon-cung-va-thanh-kho%E1%BA%A3n-cd-hn-848418",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/10/bds.webp",
+      "excerpt": "Thị trường nhà ở đang bước vào giai đoạn sôi động với sự trở lại của nhiều dự án quy mô lớn, đặc biệt tại các khu vực ven đô Hà Nội và TP.HCM.",
+      "category": "phan-tich",
+      "categoryLabel": "Phân tích",
+      "date": "23/10/2025 14:00"
+    },
+    {
+      "id": 57,
+      "title": "Thị Trường Bất Động Sản Việt Nam Đang Đối Mặt Với Những Vấn Đề Bất Ổn Nào?",
+      "url": "https://wiki.batdongsan.com.vn/phan-tich-danh-gia/thi-truong-bat-dong-san-viet-nam-dang-doi-mat-voi-nhung-van-de-bat-on-nao-cd-hn-848132",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/10/tin-dung-bds.jpg",
+      "excerpt": "Giá tăng cao vượt khả năng chi trả của phần đông dân chúng nhưng tỉ lệ hấp thụ trên thị trường vẫn khả quan với tỉ lệ đạt 70-80%.",
+      "category": "phan-tich",
+      "categoryLabel": "Phân tích",
+      "date": "20/10/2025 08:28"
+    },
+    {
+      "id": 58,
+      "title": "Giá Chung Cư Hà Nội Tăng Cao, Tỉ Lệ Hấp Thụ Vẫn Tích Cực",
+      "url": "https://wiki.batdongsan.com.vn/phan-tich-danh-gia/gia-chung-cu-ha-noi-tang-cao-ti-le-hap-thu-van-tich-cuc-cd-hn-847929",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/10/ha-noi.jpg",
+      "excerpt": "Quý 3/2025 thị trường chung cư Hà Nội tiếp tục ghi nhận đà đi lên của giá bán.",
+      "category": "phan-tich",
+      "categoryLabel": "Phân tích",
+      "date": "16/10/2025 07:53"
+    },
+    {
+      "id": 59,
+      "title": "Giá Bán Chung Cư Hà Nội Sẽ Diễn Biến Ra Sao Thời Gian Tới?",
+      "url": "https://wiki.batdongsan.com.vn/phan-tich-danh-gia/gia-ban-chung-cu-Ha-Noi-se-dien-bien-ra-sao-thoi-gian-toi-cd-hn-846482",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/09/Ha-Noi-2-1.jpg",
+      "excerpt": "Trong nửa cuối năm 2025 và giai đoạn 2026-2027, hàng chục nghìn căn hộ sẽ gia nhập thị trường Hà Nội, chủ yếu ở phân khúc trung - cao cấp.",
+      "category": "phan-tich",
+      "categoryLabel": "Phân tích",
+      "date": "30/09/2025 11:01"
+    },
+    {
+      "id": 60,
+      "title": "Những Thách Thức Của Thị Trường Bất Động Sản Hiện Tại",
+      "url": "https://wiki.batdongsan.com.vn/phan-tich-danh-gia/nhung-thach-thuc-cua-thi-truong-bat-dong-san-hien-tai-cd-hn-844427",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/08/ha-noi-1-1.jpg",
+      "excerpt": "Thị trường bất động sản đã đi được gần hết 3 quý năm 2025 và ghi nhận những chuyển biến tích cực.",
+      "category": "phan-tich",
+      "categoryLabel": "Phân tích",
+      "date": "09/09/2025 15:05"
+    },
+    {
+      "id": 61,
+      "title": "Các Xu Hướng Đáng Chú Ý Của Thị Trường Bất Động Sản 2025",
+      "url": "https://wiki.batdongsan.com.vn/phan-tich-danh-gia/cac-xu-huong-dang-chu-y-cua-thi-truong-bat-dong-san-hien-tai-cd-hn-844035",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/08/thi-truong-2.jpg",
+      "excerpt": "Thị trường bất động sản năm 2025 đã trải qua được 8 tháng. Trong suốt thời gian qua, thị trường đã vận hành theo xu hướng nào?",
+      "category": "phan-tich",
+      "categoryLabel": "Phân tích",
+      "date": "03/09/2025 11:01"
+    },
+    {
+      "id": 62,
+      "title": "Diện Mạo Thị Trường Bất Động Sản TP.HCM Sau Sáp Nhập Hiện Ra Sao?",
+      "url": "https://wiki.batdongsan.com.vn/phan-tich-danh-gia/dien-mao-thi-truong-b%C4%91s-TP.HCM-sau-sap-nhap-hien-ra-sao-cd-hcm-843800",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/08/tp.hcm2_.jpg",
+      "excerpt": "Trở thành siêu đô thị lớn nhất sau sáp nhập, hiện thị trường bất động sản TP.HCM đang diễn biến ra sao?",
+      "category": "phan-tich",
+      "categoryLabel": "Phân tích",
+      "date": "26/08/2025 14:00"
+    },
+    {
+      "id": 63,
+      "title": "Sau Sáp Nhập, Đâu Sẽ Là Điểm Nóng Của Thị Trường Bất Động Sản Việt Nam?",
+      "url": "https://wiki.batdongsan.com.vn/phan-tich-danh-gia/sau-sap-nhap-dau-se-la-diem-nong-cua-thi-truong-bat-dong-san-Viet-Nam-cd-hn-843634",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/08/hai-phong.jpg",
+      "excerpt": "Thị trường bất động sản ghi nhận những biến chuyển mạnh mẽ sau sáp nhập.",
+      "category": "phan-tich",
+      "categoryLabel": "Phân tích",
+      "date": "25/08/2025 08:05"
+    },
+    {
+      "id": 64,
+      "title": "Kịch Bản Nào Cho Thị Trường Bất Động Sản Cuối Năm 2025?",
+      "url": "https://wiki.batdongsan.com.vn/phan-tich-danh-gia/kich-ban-nao-cho-thi-truong-bat-dong-san-cuoi-nam-2025-cd-hn-843569",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/08/6.1.jpg",
+      "excerpt": "Đến thời điểm hiện tại, thị trường bất động sản đã trải qua được 8 tháng, ghi nhận những diễn biến tích cực.",
+      "category": "phan-tich",
+      "categoryLabel": "Phân tích",
+      "date": "22/08/2025 08:03"
+    },
+    {
+      "id": 65,
+      "title": "Nhà Đầu Tư Chuyển Từ Lướt Sóng Sang Nắm Giữ Lâu Dài",
+      "url": "https://wiki.batdongsan.com.vn/phan-tich-danh-gia/nha-dau-tu-chuyen-tu-luot-song-sang-nam-giu-lau-dai-cd-hn-841939",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/07/dat-nen.jpg",
+      "excerpt": "Dữ liệu \"Tâm lý người tiêu dùng Bất động sản và những xu hướng mới\" của Batdongsan.com.vn đã phác thảo một cách rõ nét chân dung người mua ở thực và nhà đầu tư bất động sản.",
+      "category": "phan-tich",
+      "categoryLabel": "Phân tích",
+      "date": "31/07/2025 14:00"
+    },
+    {
+      "id": 66,
+      "title": "Căn Hộ Hà Nội Tiếp Tục Tăng Giá Trên Thị Trường Sơ Cấp Và Thứ Cấp",
+      "url": "https://wiki.batdongsan.com.vn/phan-tich-danh-gia/can-ho-Ha-Noi-tiep-tuc-tang-gia-tren-thi-truong-so-cap-va-thu-cap-cd-hn-840286",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/07/thi-truong.png",
+      "excerpt": "Thị trường căn hộ Hà Nội trong quý 2/2025 tiếp tục ghi nhận sự tăng trưởng mạnh của giá bán, đặc biệt trên thị trường sơ cấp.",
+      "category": "phan-tich",
+      "categoryLabel": "Phân tích",
+      "date": "12/07/2025 09:22"
+    },
+    {
+      "id": 67,
+      "title": "Sáp Nhập Tỉnh, Thị Trường Xuất Hiện Những Vùng Đất Tiềm Năng",
+      "url": "https://wiki.batdongsan.com.vn/phan-tich-danh-gia/sap-nhap-tinh-thi-truong-xuat-hien-nhung-vung-dat-tiem-nang-cd-hcm-839789",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/07/thi-truong-bds.jpg",
+      "excerpt": "Sáp nhập tỉnh góp phần quan trọng tạo nên những thay đổi địa giới hành chính, tạo nên những thị trường bất động sản tiềm năng.",
+      "category": "phan-tich",
+      "categoryLabel": "Phân tích",
+      "date": "05/07/2025 09:06"
+    },
+    {
+      "id": 68,
+      "title": "Sáp Nhập Tỉnh Và Những Tác Động Tích Cực Đến Thị Trường Bất Động Sản",
+      "url": "https://wiki.batdongsan.com.vn/phan-tich-danh-gia/sap-nhap-tinh-va-nhung-tac-dong-tich-cuc-den-thi-truong-bat-dong-san-cd-hn-837881",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/06/dat-en.png",
+      "excerpt": "Cả nước có 34 đơn vị hành chính cấp tỉnh. Sáp nhập tỉnh được đánh giá là sẽ tác động tích cực đến thị trường bất động sản.",
+      "category": "phan-tich",
+      "categoryLabel": "Phân tích",
+      "date": "19/06/2025 08:44"
+    },
+    {
+      "id": 69,
+      "title": "Chung Cư Hà Nội: Giá Trên Thị Trường Thứ Cấp Sẽ Tiếp Tục Có Sự Điều Chỉnh",
+      "url": "https://wiki.batdongsan.com.vn/phan-tich-danh-gia/chung-cu-ha-noi-gia-tren-thi-truong-thu-cap-se-tiep-tuc-co-su-dieu-chinh-cd-hn-836458",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/05/chung-cu-Ha-Noi.jpg",
+      "excerpt": "Từng là phân khúc làm mưa làm gió trên thị trường bất động sản trong suốt 2 năm qua, từ đầu năm 2025, căn hộ chung cư không còn giữ được \"phong độ\" như trước.",
+      "category": "phan-tich",
+      "categoryLabel": "Phân tích",
+      "date": "04/06/2025 11:03"
+    },
+    {
+      "id": 70,
+      "title": "Quy Nhơn Thuộc Tỉnh Nào? Đánh Giá Tiềm Năng Phát Triển BĐS Quy Nhơn",
+      "url": "https://wiki.batdongsan.com.vn/phan-tich-danh-gia/quy-nhon-thuoc-tinh-nao-824809",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/04/quy-nhon-thuoc-tinh-nao-2.jpg",
+      "excerpt": "Nổi tiếng với vẻ đẹp tự nhiên và văn hóa đặc sắc, Quy Nhơn đang ngày càng thu hút sự quan tâm của du khách và nhà đầu tư.",
+      "category": "phan-tich",
+      "categoryLabel": "Phân tích",
+      "date": "28/04/2025 11:20"
+    },
+    {
+      "id": 71,
+      "title": "Thị Trường Bất Động Sản Long An: Thấy Gì Từ Cuộc Đổ Bộ Của Các Ông Lớn Bất Động Sản?",
+      "url": "https://wiki.batdongsan.com.vn/phan-tich-danh-gia/thi-truong-bat-dong-san-long-an-thay-gi-tu-cuoc-do-bo-cua-cac-ong-lon-bat-dong-san-cd-hcm-833503",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/04/du-an.jpg",
+      "excerpt": "Long An đang là một trong những thị trường vệ tinh đáng chú ý ở khu vực phía Nam.",
+      "category": "phan-tich",
+      "categoryLabel": "Phân tích",
+      "date": "25/04/2025 16:02"
+    },
+    {
+      "id": 72,
+      "title": "Thị Trường BĐS Long An: Đất Nền Đang Ở Giai Đoạn Tích Lũy Và Sẵn Sàng Bước Vào Chu Kỳ Tăng Trưởng Mới",
+      "url": "https://wiki.batdongsan.com.vn/phan-tich-danh-gia/dat-nen-Long-An-dang-o-giai-doan-tich-luy-va-san-sang-buoc-vao-chu-ki-tang-truong-moi-cd-hcm-833476",
+      "image": "https://img.iproperty.com.my/angel/520x300-crop/wp-content/uploads/sites/7/2025/04/dat-nen-Long-An.jpg",
+      "excerpt": "Cuộc đổ bộ của các ông lớn như Vingroup, Ecopark... với các dự án quy mô lớn đã khuấy đảo thị trường bất động sản Long An.",
+      "category": "phan-tich",
+      "categoryLabel": "Phân tích",
+      "date": "24/04/2025 14:22"
+    }
+  ],
+  "scraped_at": "2026-04-16T15:30:00+07:00"
+}

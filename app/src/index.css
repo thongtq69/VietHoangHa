@@ -2,55 +2,133 @@
 @import "tailwindcss";
 
 @theme {
+  /* === Color System (Real Estate Trust Palette) === */
   --color-primary-50: #ecfdf5;
   --color-primary-100: #d1fae5;
+  --color-primary-200: #a7f3d0;
   --color-primary-600: #059669;
   --color-primary-700: #047857;
   --color-secondary-50: #f8fafc;
+  --color-secondary-100: #f1f5f9;
+  --color-secondary-200: #e2e8f0;
   --color-secondary-800: #1e293b;
   --color-secondary-900: #0f172a;
   --color-accent-500: #f59e0b;
   --color-accent-600: #d97706;
 
+  /* === Typography === */
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
 
-  --animate-fade-in: fade-in 0.8s ease-out;
+  /* === Animations (150-300ms per Pro Max guidelines) === */
+  --animate-fade-in: fade-in 0.6s ease-out;
+  --animate-fade-in-up: fade-in-up 0.5s ease-out;
+  --animate-slide-in: slide-in 0.3s ease-out;
+  --animate-scale-in: scale-in 0.2s ease-out;
 
   @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
   }
+
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slide-in {
+    from { opacity: 0; transform: translateX(-8px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes scale-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes articleSlideUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* === Base Styles === */
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 body {
   font-family: var(--font-body);
   background-color: var(--color-secondary-50);
   color: var(--color-secondary-900);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
 
+/* === Focus Visible (Accessibility - 2-4px ring per Pro Max) === */
+*:focus-visible {
+  outline: 2px solid var(--color-primary-600);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-primary-600);
+  outline-offset: 2px;
+}
+
+/* === Reduced Motion Support (Pro Max requirement) === */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* === Utility Classes === */
+
 @utility glass-card {
-  background-color: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-radius: 1rem;
-  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.08),
+              0 2px 8px -2px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Elevation System (4 levels per Pro Max) */
+@utility shadow-sm-pro {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06),
+              0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+@utility shadow-md-pro {
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.08),
+              0 2px 4px -1px rgba(0, 0, 0, 0.04);
 }
 
 @utility shadow-premium {
-  box-shadow: 0 20px 60px -15px rgba(0,0,0,0.12);
+  box-shadow: 0 16px 48px -12px rgba(0, 0, 0, 0.12),
+              0 4px 16px -4px rgba(0, 0, 0, 0.06);
 }
 
+@utility shadow-xl-pro {
+  box-shadow: 0 24px 64px -16px rgba(0, 0, 0, 0.14),
+              0 8px 24px -6px rgba(0, 0, 0, 0.06);
+}
+
+/* Line Clamps */
 @utility line-clamp-1 {
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -71,3 +149,4 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
